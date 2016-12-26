@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>dubbo</groupId>
-		<artifactId>eleme-user-core</artifactId>
+		<artifactId>eleme-user-all</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>eleme-user-controller</artifactId>
