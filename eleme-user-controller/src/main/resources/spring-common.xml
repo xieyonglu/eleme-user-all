@@ -29,14 +29,12 @@
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<bean
-					class="org.springframework.http.converter.StringHttpMessageConverter">
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/html; charset=UTF-8</value>
@@ -44,8 +42,7 @@
 						</list>
 					</property>
 				</bean>
-				<bean
-					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/html; charset=UTF-8</value>
@@ -64,12 +61,7 @@
 
 		<!-- 对 物流商PC端 / 司机APP端 相关Web API进行拦截 -->
 		<mvc:interceptor>
-			<mvc:mapping path="/logistics/carrier/**" />
-			<mvc:mapping path="/logistics/driver/**" />
-			<mvc:mapping path="/logistics/order/**" />
-			<mvc:mapping path="/logistics/route/**" />
-			<mvc:mapping path="/logistics/pc/**" />
-			<mvc:mapping path="/logistics/app/**" />
+			<mvc:mapping path="/user/**" />
 			<bean class="jwcms.user.interceptor.LoginRequiredInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

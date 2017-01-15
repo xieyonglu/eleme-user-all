@@ -33,7 +33,7 @@ public class BeforeRequestInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String uri = request.getRequestURI();
-		if (uri.indexOf("/ping") >= 0 || uri.indexOf("/logistics/ops") >= 0) {
+		if (uri.indexOf("/ping") >= 0) {
 			return true;
 		}
 		

@@ -11,7 +11,6 @@ public class DubboProvider {
 
 	public static void main(String[] args) throws IOException {
 		//applicationContext = new FileSystemXmlApplicationContext("classpath*:application-context.xml");
-		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:application-context.xml");
 		context.start();
 
