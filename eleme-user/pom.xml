@@ -12,7 +12,11 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>dubbo</groupId>
+			<artifactId>eleme-user-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<distributionManagement>

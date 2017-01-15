@@ -6,16 +6,16 @@ public class User implements Serializable {
 	
 	private static final long serialVersionUID = 7223482988809438906L;
 	
-	private Long userId;
+	private Long id;
 	private String userName;
 	private String password;
 
-	public Long getUserId() {
-		return userId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUserName() {

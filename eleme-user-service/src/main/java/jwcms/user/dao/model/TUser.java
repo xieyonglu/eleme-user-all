@@ -6,16 +6,16 @@ public class TUser implements Serializable {
 
 	private static final long serialVersionUID = -5903739285843634480L;
 	
-	private Long userId;
+	private Long id;
 	private String userName;
 	private String password;
 
-	public Long getUserId() {
-		return userId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUserName() {
