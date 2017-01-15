@@ -16,6 +16,7 @@ public class Bootstrap {
 		context.start();
 
 		System.out.println("服务已经启动...");
+		System.in.read();
 	}
 
 }
