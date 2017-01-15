@@ -21,30 +21,27 @@ public class UserServiceImpl implements UserService {
 	private UserConverter userConverter;
 
 	@Override
-	public User createUser(User user) throws Exception {
+	public Long createUser(User user) throws Exception {
 		System.out.println("==Service CreateUser==");
 		TUser tuser = userConverter.invert(user);
 		userDao.createUser(tuser);
-		user.setId(tuser.getId());
 		
-		return user;
+		return tuser.getId();
 	}
 
 	@Override
-	public boolean removeUser(Long userId) throws Exception {
+	public void removeUser(Long userId) throws Exception {
 		System.out.println("==Service RemoveUser==");
 		
 		userDao.removeUser(userId);
-		return false;
 	}
 
 	@Override
-	public User updateUser(User user) throws Exception {
+	public void updateUser(User user) throws Exception {
 		System.out.println("==Service UpdateUser==");
 		TUser tuser = userConverter.invert(user);
 		
 		userDao.updateUser(tuser);
-		return user;
 	}
 
 	@Override

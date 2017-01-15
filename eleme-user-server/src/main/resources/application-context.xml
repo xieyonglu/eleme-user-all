@@ -21,7 +21,6 @@
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:database.properties</value>
 				<value>classpath:application.properties</value>
 				<value>classpath:dubbo.properties</value>
 			</list>
@@ -106,6 +105,6 @@
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<!-- <import resource="spring-rmq.xml" /> -->
-	<import resource="application-provider.xml" />
+	<import resource="dubbo-provider.xml" />
 
 </beans>

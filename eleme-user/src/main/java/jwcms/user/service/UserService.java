@@ -10,7 +10,7 @@ public interface UserService {
 	 * @return
 	 * @throws Exception
 	 */
-	public User createUser(User user) throws Exception;
+	public Long createUser(User user) throws Exception;
 	
 	/**
 	 * 删除用户
@@ -18,7 +18,7 @@ public interface UserService {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean removeUser(Long userId) throws Exception;
+	public void removeUser(Long userId) throws Exception;
 	
 	/**
 	 * 更新用户
@@ -26,7 +26,7 @@ public interface UserService {
 	 * @return
 	 * @throws Exception
 	 */
-	public User updateUser(User user) throws Exception;
+	public void updateUser(User user) throws Exception;
 	
 	/**
 	 * 根据用户ID查询用户
