@@ -3,7 +3,11 @@ package jwcms.user.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jwcms.common.exception.ServiceException;
+import jwcms.user.converter.UserConverter;
 import jwcms.user.dao.UserDao;
+import jwcms.user.dao.model.TUser;
+import jwcms.user.exception.UserExceptionCode;
 import jwcms.user.model.User;
 import jwcms.user.service.UserService;
 
@@ -12,6 +16,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private UserConverter userConverter;
 
 	@Override
 	public User createUser(User user) throws Exception {
@@ -40,9 +47,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User queryUserById(Long userId) throws Exception {
 		System.out.println("==Service QueryUserById==");
+		if(userId.compareTo(1L) == 0) {
+			throw new ServiceException(UserExceptionCode.USER_NOT_FOUND);
+		}
 		
-		userDao.queryUserById(userId);
-		return null;
+		TUser tuser = userDao.queryUserById(userId);
+		return userConverter.convert(tuser);
 	}
 
 }

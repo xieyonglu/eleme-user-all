@@ -5,26 +5,25 @@
 	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
-  		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+  		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
   		http://www.springframework.org/schema/context  
- 	 	http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+ 	 	http://www.springframework.org/schema/context/spring-context-4.2.xsd  
   		http://www.springframework.org/schema/mvc  
-  		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+  		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
   		http://www.springframework.org/schema/tx 
-        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
   		http://www.springframework.org/schema/task 
-  		http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+  		http://www.springframework.org/schema/task/spring-task-4.2.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="java" />
+	<context:component-scan base-package="jwcms.user" />
 
-	<bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>conf/database.properties</value>
-				<value>conf/application.properties</value>
-				<value>conf/dubbo.properties</value>
+				<value>classpath:database.properties</value>
+				<value>classpath:application.properties</value>
+				<value>classpath:dubbo.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -60,10 +59,10 @@
 		<property name="testConnectionOnCheckout" value="false" />
 	</bean>
 
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- 定义Spring事物模板 -->
@@ -75,13 +74,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:jwcms/user/dao/mapper/*.xml" />
-		<property name="configLocation" value="conf/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 		<property name="typeAliasesPackage" value="jwcms.user.dao.model.*" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="jwcms.user.dao.mapper" />
+		<property name="basePackage" value="jwcms.user.dao" />
 	</bean>
 
 	<!--Jedis 连接池配置 -->
@@ -107,5 +106,6 @@
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<!-- <import resource="spring-rmq.xml" /> -->
+	<import resource="application-provider.xml" />
 
 </beans>

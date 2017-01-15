@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- 用户表 tb_user 数据库操作接口XML实现 -->
+<!-- 用户表 t_user 数据库操作接口XML实现 -->
 <mapper namespace="jwcms.user.dao.UserDao">
 	<resultMap id="BaseResultMap" type="jwcms.user.dao.model.TUser">
 		<id column="id" property="id" />
@@ -10,13 +10,14 @@
 	</resultMap>
 
 	<sql id="Base_Column_List_Insert">
-		user_id
+		id
 		,user_name
 		,password
 	</sql>
 
 	<sql id="Base_Column_List">
 		<include refid="Base_Column_List_Insert" />
+		,is_delete
 	</sql>
 	
 	<sql id="insert_column">
@@ -45,7 +46,7 @@
 	
 	<!-- 添加 货车表 数据 -->
 	<insert id="createUser" parameterType="jwcms.user.dao.model.TUser" useGeneratedKeys="true" keyProperty="id">
-		insert into tb_user (
+		insert into t_user (
 		<include refid="insert_column" />
 		)
 		values (
@@ -55,7 +56,7 @@
 
 	<!-- 修改 货车表 数据 -->
 	<update id="updateUser" parameterType="jwcms.user.dao.model.TUser">
-		UPDATE tb_truck
+		UPDATE t_user
 		SET
 		<if test="userName != null">
 			user_name = #{userName},
@@ -65,13 +66,13 @@
 			password = #{password},
 		</if>
 		
-		user_id = #{userId}
+		id = #{userId}
 		WHERE id = #{userId}
 	</update>
 
 	<!-- 根据ID删除 货车表 数据 -->
 	<update id="removeUser" parameterType="java.lang.Long">
-		UPDATE tb_user
+		UPDATE t_user
 		SET is_delete = 1
 		WHERE id = #{id}
 	</update>
@@ -80,7 +81,7 @@
 	<select id="queryUserById" resultMap="BaseResultMap" parameterType="java.lang.Long">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM tb_user
+		FROM t_user
 		WHERE is_delete = 0
 		AND id = #{id}
 	</select>

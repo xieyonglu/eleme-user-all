@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import jwcms.user.framework.ResponseEntity;
 import jwcms.user.model.User;
 import jwcms.user.service.UserService;
 
@@ -22,31 +24,38 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping(value = "/create_user", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-	public void createUser(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @RequestBody User user) throws Exception {
+	@ResponseBody
+	public ResponseEntity<?> createUser(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @RequestBody User user) throws Exception {
 		System.out.println("==Controller CreateUser==");
-		
 		userService.createUser(null);
+		
+		return ResponseEntity.success();
 	}
 
 	@RequestMapping(value = "/delete_user/{userId}", method = RequestMethod.DELETE)
-	public void removeUser(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @PathVariable Long userId) throws Exception {
+	@ResponseBody
+	public ResponseEntity<?> removeUser(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @PathVariable Long userId) throws Exception {
 		System.out.println("==Controller RemoveUser==");
-		
 		userService.removeUser(null);
+		
+		return ResponseEntity.success();
 	}
 
 	@RequestMapping(value = "/update_user", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public void updateUser(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @RequestBody User user) throws Exception {
+	@ResponseBody
+	public ResponseEntity<?> updateUser(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @RequestBody User user) throws Exception {
 		System.out.println("==Controller UpdateUser==");
-		
 		userService.updateUser(null);
+		
+		return ResponseEntity.success();
 	}
 
 	@RequestMapping(value = "/query_user/{userId}", method = RequestMethod.GET)
-	public void queryUserById(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @PathVariable Long userId) throws Exception {
+	@ResponseBody
+	public ResponseEntity<?> queryUserById(HttpServletRequest httpRequest, HttpServletResponse httpRsponse, @PathVariable Long userId) throws Exception {
 		System.out.println("==Controller QueryUserById==");
 		
-		userService.queryUserById(null);
+		return ResponseEntity.success(userService.queryUserById(userId));
 	}
 	
 }

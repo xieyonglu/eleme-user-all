@@ -14,10 +14,10 @@
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 注解扫描包 -->
-	<context:component-scan base-package="jwcms" />
+	<!-- <context:component-scan base-package="jwcms" /> -->
 
 	<!-- 开启注解 -->
-	<mvc:annotation-driven />
+	<!-- <mvc:annotation-driven /> -->
 	
 	<dubbo:application owner="whb" name="hello-world-app"></dubbo:application>
     <!--zookeeper注册中心 -->
@@ -28,7 +28,8 @@
     <!-- 配置监控的服务地址和IP-->
     <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>
     <!-- 发布这个服务 -->
-    <dubbo:service timeout="2000" ref="userService" protocol="dubbo" interface="jwcms.user.service.UserService" connections="100"></dubbo:service>       
+    <dubbo:service timeout="20000" ref="userService" protocol="dubbo" interface="jwcms.user.service.UserService" connections="100"></dubbo:service>       
+   
     <!-- 和本地bean一样实现服务 -->
     <bean class="jwcms.user.service.impl.UserServiceImpl" id="userService"></bean>
 	
