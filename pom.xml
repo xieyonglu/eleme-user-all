@@ -12,12 +12,21 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework.version>4.2.5.RELEASE</org.springframework.version>
 		<junit.version>4.12</junit.version>
+		<jackson.version>2.5.2</jackson.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.5.1-alpha</zookeeper.version>
 		<zkclient.version>0.9</zkclient.version>
 		
+		<!-- mybatis版本号 -->
+		<!-- <mybatis.version>3.2.8</mybatis.version>
+		<spring-mybatis.version>1.2.2</spring-mybatis.version>
+		
+		<mapper.version>3.1.1</mapper.version> -->
+		
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.7.19</slf4j.version>
+		
+		<mongo.version>1.8.4.RELEASE</mongo.version>
 
 		<logback.version>1.1.6</logback.version>
 		<logback-ext-spring.version>0.1.2</logback-ext-spring.version>
@@ -25,6 +34,7 @@
 
 	<modules>
 		<module>eleme-user</module>
+		<module>eleme-user-common</module>
 		<module>eleme-user-server</module>
 		<module>eleme-user-service</module>
 		<module>eleme-user-controller</module>
@@ -176,6 +186,29 @@
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>${zkclient.version}</version>
+		</dependency>
+		
+		<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 	</dependencies>
