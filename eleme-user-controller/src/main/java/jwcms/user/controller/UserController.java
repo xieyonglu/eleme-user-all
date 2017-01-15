@@ -33,6 +33,7 @@ public class UserController {
 		
 		return ResponseEntity.success();
 	}
+	
 
 	@RequestMapping(value = "/delete_user/{userId}", method = RequestMethod.DELETE)
 	@ResponseBody
@@ -43,6 +44,7 @@ public class UserController {
 		
 		return ResponseEntity.success();
 	}
+	
 
 	@RequestMapping(value = "/update_user", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	@ResponseBody
@@ -53,6 +55,7 @@ public class UserController {
 		
 		return ResponseEntity.success();
 	}
+	
 
 	@RequestMapping(value = "/query_user/{userId}", method = RequestMethod.GET)
 	@ResponseBody

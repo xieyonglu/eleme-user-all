@@ -66,8 +66,8 @@
 			password = #{password},
 		</if>
 		
-		id = #{userId}
-		WHERE id = #{userId}
+		id = #{id}
+		WHERE id = #{id}
 	</update>
 
 	<!-- 根据ID删除 货车表 数据 -->

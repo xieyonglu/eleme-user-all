@@ -23,9 +23,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User createUser(User user) throws Exception {
 		System.out.println("==Service CreateUser==");
+		TUser tuser = userConverter.invert(user);
+		userDao.createUser(tuser);
+		user.setId(tuser.getId());
 		
-		userDao.createUser(null);
-		return null;
+		return user;
 	}
 
 	@Override
@@ -39,9 +41,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User updateUser(User user) throws Exception {
 		System.out.println("==Service UpdateUser==");
+		TUser tuser = userConverter.invert(user);
 		
-		userDao.updateUser(null);
-		return null;
+		userDao.updateUser(tuser);
+		return user;
 	}
 
 	@Override
