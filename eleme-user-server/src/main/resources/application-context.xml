@@ -105,7 +105,7 @@
 	<!-- 该 BeanPostProcessor 将自动对标注 @Autowired 的 Bean 进行注入 -->
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
-	<!-- <import resource="spring-rmq.xml" /> -->
+	<!-- <import resource="spring-rabbitmq.xml" /> -->
 	<import resource="dubbo-provider.xml" />
 
 </beans>

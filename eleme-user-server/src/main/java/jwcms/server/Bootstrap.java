@@ -9,14 +9,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author yonglu.xie
  *
  */
-public class DubboProvider {
+public class Bootstrap {
 	
 	public static void main(String[] args) throws IOException {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:application-context.xml");
 		context.start();
 
 		System.out.println("服务已经启动...");
-		System.in.read();
 	}
 
 }
