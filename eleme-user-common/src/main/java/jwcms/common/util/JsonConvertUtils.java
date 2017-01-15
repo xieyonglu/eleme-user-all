@@ -1,4 +1,4 @@
-package jwcms.common.utils;
+package jwcms.common.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ public class JsonConvertUtils {
 	private static final Log LOGGER = LogFactory.getLog(JsonConvertUtils.class);
 
 	private static ObjectMapper mapper = new ObjectMapper();
+	
 	private static final String ERROR_MESSAGE = "JSON转换出错!";
 
 	private JsonConvertUtils() {

@@ -1,4 +1,4 @@
-package jwcms.common.utils;
+package jwcms.common.util;
 
 public class StringUtils {
 

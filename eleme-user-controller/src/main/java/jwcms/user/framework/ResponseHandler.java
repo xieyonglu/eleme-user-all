@@ -8,7 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.HttpStatus;
 
-import jwcms.common.utils.JsonConvertUtils;
+import jwcms.common.util.JsonConvertUtils;
 
 
 /**

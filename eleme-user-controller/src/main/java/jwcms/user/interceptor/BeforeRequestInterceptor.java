@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import jwcms.common.utils.Constant;
-import jwcms.common.utils.JsonConvertUtils;
-import jwcms.common.utils.StringUtils;
+import jwcms.common.util.Constant;
+import jwcms.common.util.JsonConvertUtils;
+import jwcms.common.util.StringUtils;
 import jwcms.user.framework.ResponseEntity;
 
 /**
