@@ -27,6 +27,7 @@ public class LoginRequiredInterceptor extends HandlerInterceptorAdapter {
 		if (uri.indexOf("/ping") >= 0) {
 			return true;
 		}
+		
 		Long userId = null;
 		// 验证是否已经登陆
 		if (methodCanValidate(handler) && request.getAttribute(Constant.USERID_SESSION_KEY) == null) {
@@ -36,9 +37,11 @@ public class LoginRequiredInterceptor extends HandlerInterceptorAdapter {
 			LOGGER.info("Login Required Fail, User ID : " + userId);
 			return false;
 		}
+		
 		if (request.getAttribute(Constant.USERID_SESSION_KEY) != null) {
 			userId = Long.parseLong(request.getAttribute(Constant.USERID_SESSION_KEY).toString());
 		}
+		
 		LOGGER.info("Login Required Success, User ID : " + userId);
 		return true;
 	}

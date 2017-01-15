@@ -17,7 +17,6 @@ import jwcms.user.framework.ResponseEntity;
 
 /**
  * <h1>所有请求拦截器</h1>
- * @author 李刚 (gang.li@ele.me)
  */
 public class BeforeRequestInterceptor extends HandlerInterceptorAdapter {
 	
@@ -28,7 +27,7 @@ public class BeforeRequestInterceptor extends HandlerInterceptorAdapter {
 	
 	static final String MASTER_TOKEN = "q1w2e3r4t5y6u7i8o9p0";
 	
-	static final Long MASTER_USER_ID = 823L;
+	static final Long MASTER_USER_ID = 100L;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
