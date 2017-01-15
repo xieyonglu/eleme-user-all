@@ -17,17 +17,17 @@
 	<!-- 开启注解 -->
 	<!-- <mvc:annotation-driven /> -->
 
-	<dubbo:application owner="whb" name="hello-world-app"></dubbo:application>
+	<dubbo:application owner="whb" name="hello-world-app" />
 
 	<!--zookeeper注册中心 -->
-	<dubbo:registry address="zookeeper://localhost:2181"></dubbo:registry>
+	<dubbo:registry address="zookeeper://localhost:2181" />
 
 	<!--使用multicast广播注册中心暴露服务地址 -->
 	<!--<dubbo:registry address="multicast://10.57.41.19:1234" /> -->
-	<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+	<dubbo:protocol name="dubbo" port="20880" />
 
 	<!-- 配置监控的服务地址和IP -->
-	<dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>
+	<dubbo:monitor address="127.0.0.1:7070" />
 
 	<!-- 发布这个服务 -->
 	<dubbo:service timeout="20000" ref="userService" protocol="dubbo" interface="jwcms.user.service.UserService" connections="100" />

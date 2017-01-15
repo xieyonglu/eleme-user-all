@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>dubbo</groupId>
+	<groupId>jwcms</groupId>
 	<artifactId>eleme-user-all</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>eleme-user-all</name>
@@ -16,12 +16,6 @@
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.5.1-alpha</zookeeper.version>
 		<zkclient.version>0.9</zkclient.version>
-		
-		<!-- mybatis版本号 -->
-		<!-- <mybatis.version>3.2.8</mybatis.version>
-		<spring-mybatis.version>1.2.2</spring-mybatis.version>
-		
-		<mapper.version>3.1.1</mapper.version> -->
 		
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.7.19</slf4j.version>
@@ -203,12 +197,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>*</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 	</dependencies>

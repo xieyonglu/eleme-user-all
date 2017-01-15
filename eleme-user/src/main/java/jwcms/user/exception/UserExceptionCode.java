@@ -15,7 +15,7 @@ public enum UserExceptionCode implements IExceptionCode {
 	 * 用户没有被找到
 	 */
 	@Desc("用户没有被找到")
-	@Code(5000)
+	@Code(1000)
 	USER_NOT_FOUND,
 
 	;

@@ -16,6 +16,7 @@
   		http://www.springframework.org/schema/task/spring-task-4.2.xsd">
 
 	<context:annotation-config />
+	
 	<context:component-scan base-package="jwcms.user" />
 
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
