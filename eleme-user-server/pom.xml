@@ -30,9 +30,9 @@
 				<version>2.6</version>
 				<configuration>
 					<appendAssemblyId>false</appendAssemblyId>
-					<finalName>${appid}</finalName>
+					<finalName>eleme-user</finalName>
 					<descriptors>
-						<descriptor>${project.basedir}/dist.xml</descriptor>
+						<descriptor>XXXXX</descriptor>
 					</descriptors>
 				</configuration>
 
@@ -48,5 +48,26 @@
 			</plugin>
 		</plugins>
 	</build> -->
+	
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <configuration>
+        <archive>
+            <manifest>
+                <mainClass>ctas.importer.reader.app.Program</mainClass>
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>lib/</classpathPrefix>
+            </manifest>
+        </archive>
+        <classesDirectory>
+        </classesDirectory>
+    </configuration>
+</plugin>
+		</plugins>
+	</build>
 
 </project>
