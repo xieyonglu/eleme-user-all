@@ -9,6 +9,9 @@ public class User implements Serializable {
 	private Long id;
 	private String userName;
 	private String password;
+	
+	private Long createdBy;
+	private Long updatedBy;
 
 	public Long getId() {
 		return id;
@@ -34,4 +37,20 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	public Long getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Long getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Long updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+	
 }

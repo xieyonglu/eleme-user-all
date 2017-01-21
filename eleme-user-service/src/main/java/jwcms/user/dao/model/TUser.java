@@ -1,11 +1,9 @@
 package jwcms.user.dao.model;
 
-import java.io.Serializable;
+import jwcms.common.model.TBaseModel;
 
-public class TUser implements Serializable {
+public class TUser extends TBaseModel {
 
-	private static final long serialVersionUID = -5903739285843634480L;
-	
 	private Long id;
 	private String userName;
 	private String password;

@@ -8,7 +8,7 @@ import jwcms.user.model.User;
 
 
 /**
- * 用户表表tb_user实体封装类属性转换器
+ * 用户表tb_user实体封装类属性转换器
  * 
  * @author 谢永路（573546261@qq.com）
  */
@@ -22,6 +22,8 @@ public class UserConverter extends Converter<User, TUser> {
 		target.setId(source.getId());
 		target.setUserName(source.getUserName());
 		target.setPassword(source.getPassword());
+		target.setCreatedBy(source.getCreatedBy());
+		target.setUpdatedBy(source.getUpdatedBy());
 		
 		return target;
 	}
@@ -33,6 +35,8 @@ public class UserConverter extends Converter<User, TUser> {
 		target.setId(source.getId());
 		target.setUserName(source.getUserName());
 		target.setPassword(source.getPassword());
+		target.setCreatedBy(source.getCreatedBy());
+		target.setUpdatedBy(source.getUpdatedBy());
 		
 		return target;
 	}
