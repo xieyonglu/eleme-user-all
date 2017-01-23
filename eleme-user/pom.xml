@@ -23,76 +23,47 @@
 		<repository>
 			<id>nexus</id>
 			<name>Releases</name>
-			<url>http://localhost:8081/repository/maven-releases</url>
+			<!--<url>http://localhost:8081/repository/maven-releases</url> -->
+			<url>http://maven.dev.elenet.me/nexus/content/repositories/ele-scm-release/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus</id>
 			<name>Snapshot</name>
-			<url>http://localhost:8081/repository/maven-snapshots</url>
+			<!-- <url>http://localhost:8081/repository/maven-snapshots</url>-->
+			<url>http://maven.dev.elenet.me/nexus/content/repositories/ele-scm-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
-<build>
-<plugins>
-<!-- The configuration of maven-jar-plugin -->
-<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-jar-plugin</artifactId>
-<version>2.4</version>
-<!-- The configuration of the plugin -->
-<configuration>
-<!-- Configuration of the archiver -->
-<archive>  
-                    <!-- 
-                        生成的jar中，不要包含pom.xml和pom.properties这两个文件 
-                    -->  
-                    <addMavenDescriptor>false</addMavenDescriptor>  
-  
-                    <!-- Manifest specific configuration -->  
-                    <manifest>  
-                        <!-- 
-                            是否要把第三方jar放到manifest的classpath中 
-                        -->  
-                        <addClasspath>true</addClasspath>  
-                        <!-- 
-                           生成的manifest中classpath的前缀，因为要把第三方jar放到lib目录下，所以classpath的前缀是lib/ 
-                       -->  
-                        <classpathPrefix>lib/</classpathPrefix>  
-                        <!-- 
-                            应用的main class 
-                        -->  
-                        <mainClass>jwcms.server.Bootstrap</mainClass>  
-                    </manifest>  
-                </archive>
-				<!-- 
-                    过滤掉不希望包含在jar中的文件 
-                -->
-				<excludes>  
-                    <exclude>${project.basedir}/xml/*</exclude>  
-                </excludes>
-			</configuration>
-</plugin><!-- The configuration of maven-assembly-plugin --><plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-assembly-plugin</artifactId>
-<version>2.4</version>
-<!-- The configuration of the plugin -->
-<configuration>
-<!-- Specifies the configuration file of the assembly plugin -->
-<descriptors>
-<descriptor>package.xml</descriptor><!-- src/main/assembly/package.xml -->
-</descriptors>
-</configuration>
-<executions>
-<execution>
-<id>make-assembly</id>
-<phase>package</phase>
-<goals>
-<goal>single</goal>
-</goals>
-</execution>
-</executions>
-</plugin>
-</plugins>
-</build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArgs>
+						<arg>-parameters</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
