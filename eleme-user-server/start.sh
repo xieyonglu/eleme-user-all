@@ -1,7 +1,7 @@
 #!/bin/sh
 
 APP_ID="eleme.user"
-MAIN_CLASS="jwcms.server.Bootstrap"
+MAIN_CLASS="jwcms.startup.Bootstrap"
 
 SCRIPTS_DIR=`dirname "$0"`
 PROJECT_DIR=`cd $SCRIPTS_DIR && pwd`
@@ -23,5 +23,5 @@ mkdir -p "$PROJECT_DIR/logs/"
 exec $JAVA_HOME/bin/java -server $MEM_OPTS $GC_OPTS $JMX_OPTS $START_OPTS -classpath $CLASS_PATH $MAIN_CLASS
 
 # END OF FILE
-
+# exec java -classpath lib/*:$CLASS_PATH jwcms.startup.Bootstrap
 

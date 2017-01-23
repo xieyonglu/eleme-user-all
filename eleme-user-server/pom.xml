@@ -6,13 +6,13 @@
 		<artifactId>eleme-user-all</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>eleme-user-server</artifactId>
-	<name>eleme-user-server</name>
-	<description>eleme-user-server</description>
+	<artifactId>eleme-user-startup</artifactId>
+	<name>eleme-user-startup</name>
+	<description>eleme-user-startup</description>
 	<packaging>jar</packaging>
 
 	<properties>
-		<appid>eleme.user.server</appid>
+		<appid>eleme.user.startup</appid>
 	</properties>
 
 	<dependencies>
@@ -45,7 +45,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>jwcms.server.Bootstrap</mainClass>
+							<mainClass>jwcms.startup.Bootstrap</mainClass>
 						</manifest>
 					</archive>
 					<!-- <descriptorRefs>

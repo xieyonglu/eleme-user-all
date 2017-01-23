@@ -29,9 +29,9 @@
 	<modules>
 		<module>eleme-user</module>
 		<module>eleme-user-common</module>
-		<module>eleme-user-server</module>
 		<module>eleme-user-service</module>
 		<module>eleme-user-controller</module>
+		<module>eleme-user-startup</module>
 	</modules>
 
 	<dependencies>

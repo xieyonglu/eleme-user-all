@@ -1,4 +1,4 @@
-package jwcms.server;
+package jwcms.startup;
 
 import java.io.IOException;
 

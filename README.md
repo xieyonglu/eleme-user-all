@@ -4,8 +4,8 @@
 
 1. eleme-user-all
 2. eleme-user
-3. eleme-user-server
+3. eleme-user-startup
 4. eleme-user-service
 5. eleme-user-controller
 
-搭建完成后，先启动eleme-user-server的Bootstrap类，然后在启动eleme-user-controller web服务。
+搭建完成后，先启动eleme-user-startup的Bootstrap类，然后在启动eleme-user-controller web服务。
