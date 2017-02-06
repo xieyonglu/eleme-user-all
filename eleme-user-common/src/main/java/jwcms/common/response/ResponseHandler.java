@@ -1,4 +1,4 @@
-package jwcms.user.framework;
+package jwcms.common.response;
 
 import java.io.IOException;
 
@@ -18,6 +18,7 @@ import jwcms.common.util.JsonConvertUtils;
 public class ResponseHandler {
 	
 	private static final Log LOGGER = LogFactory.getLog(ResponseHandler.class);
+	
 	private static final String DEFAULT_ENCODING = "UTF-8";
 	private static final String DEFAULT_CONTENT_TYPE = "application/json;chartset=UTF-8";
 

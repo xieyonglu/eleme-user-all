@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import jwcms.user.framework.ResponseEntity;
+import jwcms.common.response.ResponseEntity;
 import jwcms.user.interceptor.LoginRequired;
 import jwcms.user.model.User;
 import jwcms.user.service.UserService;

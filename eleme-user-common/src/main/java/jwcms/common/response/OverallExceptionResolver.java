@@ -1,4 +1,4 @@
-package jwcms.user.framework;
+package jwcms.common.response;
 
 import java.text.MessageFormat;
 

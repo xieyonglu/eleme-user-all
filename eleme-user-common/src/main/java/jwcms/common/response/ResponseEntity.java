@@ -1,4 +1,4 @@
-package jwcms.user.framework;
+package jwcms.common.response;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -48,25 +48,25 @@ public class ResponseEntity<E> {
 	public static <E> ResponseEntity<E> success(E data) {
 		return new ResponseEntity<>(200, "Success", data);
 	}
+	
+	public static <E> ResponseEntity<E> success(int code) {
+		return new ResponseEntity<>(code, "Success", null);
+	}
 
 	public static <E> ResponseEntity<E> success(int code, E data) {
 		return new ResponseEntity<>(code, "Success", data);
 	}
 
-	public static <E> ResponseEntity<E> success(int code) {
-		return new ResponseEntity<>(code, "Success", null);
+	public static <E> ResponseEntity<E> fail(E data) {
+		return new ResponseEntity<>(500, "系统开小差啦~~~", data);
 	}
-
-	public static <E> ResponseEntity<E> fail(int code, String msg, E data) {
-		return new ResponseEntity<>(code, msg, data);
-	}
-
+	
 	public static <E> ResponseEntity<E> fail(int code, String msg) {
 		return new ResponseEntity<>(code, msg, null);
 	}
-
-	public static <E> ResponseEntity<E> fail(E data) {
-		return new ResponseEntity<>(500, "系统开小差啦~~~", data);
+	
+	public static <E> ResponseEntity<E> fail(int code, String msg, E data) {
+		return new ResponseEntity<>(code, msg, data);
 	}
 
 	public static <E> ResponseEntity<E> fail(int code, String msg, HttpServletResponse response) {
@@ -74,24 +74,21 @@ public class ResponseEntity<E> {
 		return new ResponseEntity<>(code, msg, null);
 	}
 
-	public static <E> ResponseEntity<E> errorToken() {
-		return new ResponseEntity<>(401, "error token", null);
-	}
-
-	public static <E> ResponseEntity<E> errorCarrier() {
-		return new ResponseEntity<>(403, "error carrier", null);
-	}
-
 	public static <E> ResponseEntity<E> error(E data) {
 		return new ResponseEntity<>(500, "系统开小差啦~~~~~~~~~~~~~~", data);
-	}
-
-	public static <E> ResponseEntity<E> error(HttpServletResponse response) {
-		response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "系统开小差啦~~~~~~~~~~~~~~", null);
 	}
 
 	public static <E> ResponseEntity<E> error(String msg, E data) {
 		return new ResponseEntity<>(500, msg, data);
 	}
+	
+	public static <E> ResponseEntity<E> error(HttpServletResponse response) {
+		response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "系统开小差啦~~~~~~~~~~~~~~", null);
+	}
+	
+	public static <E> ResponseEntity<E> errorToken() {
+		return new ResponseEntity<>(401, "error token", null);
+	}
+	
 }

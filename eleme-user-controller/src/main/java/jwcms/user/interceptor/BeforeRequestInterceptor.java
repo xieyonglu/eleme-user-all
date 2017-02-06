@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import jwcms.common.response.ResponseEntity;
 import jwcms.common.util.Constant;
 import jwcms.common.util.JsonConvertUtils;
 import jwcms.common.util.StringUtils;
-import jwcms.user.framework.ResponseEntity;
 
 /**
  * <h1>所有请求拦截器</h1>
