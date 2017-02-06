@@ -11,20 +11,41 @@
 	<description>eleme-user-common</description>
 
 	<packaging>jar</packaging>
+	
+	<properties>
+		<apache.poi.version>3.10-FINAL</apache.poi.version>
+		<freemarker.version>2.3.9</freemarker.version>
+	</properties>
 
 	<dependencies>
-		<!--
+		<!-- Apache POI -->
 		<dependency>
-			<groupId>dubbo</groupId>
-			<artifactId>eleme-user</artifactId>
-			<version>${project.version}</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${apache.poi.version}</version>
 		</dependency>
-		-->
-		<!-- <dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency> -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+
+		<!-- Freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
 
 	</dependencies>
 
