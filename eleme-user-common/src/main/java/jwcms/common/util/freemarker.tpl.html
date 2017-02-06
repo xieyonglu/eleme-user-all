@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .main-content {
+            width: 70%;
+            height: 900px;
+            margin-left: 15%;
+            font-family: Microsoft YaHei;
+            font-size: 12px;
+        }
+        .single-order {
+            height: 950px !important;
+        }
+        table{
+            border-collapse:collapse;border-spacing:0;border-left:1px solid #888;border-top:1px solid #888;
+        }
+        th,td{
+            border-right:1px solid #888;border-bottom:1px solid #888;padding-right: 5px;padding-left: 5px;
+        }
+        th{
+            font-weight:bold;background:#ccc;
+        }
+        .main-content table tr td {
+            font-size: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-content">
+	<div class="single-order">
+		<div>1. 库存差异定义：即有菜产品中心库存与仓储系统可用库存的差异，请根据差异结果排查差异原因</div>
+		<div>2. 库存对比时间：${ date }</div>
+		<div>3. 库存差异如下<div>
+          <table width="100%" border="1" cellspacing="0" cellpadding="2" bordercolor="black">
+          	<tr>
+          		<th width="10%">sku_id</th>
+          		<th width="10%">供应商sku_id</th>
+          		<th width="10%">仓库商品名称</th>
+          		<th width="10%">仓库可用库存</th>
+          		<th width="10%">产品中心库存</th>
+          		<th width="10%">差异数量</th>
+          		<th width="5%">包装单位</th>
+          		<th width="5%">供应商id</th>
+          		<th width="10%">供应商名称</th>
+          		<th width="10%">仓库id</th>
+          		<th width="10%">仓库名称</th>
+          	</tr>
+			<#list skus as sku>
+                <tr>
+                    <td>${ sku.productSkuId ? string("0.#") }</td>
+                    <td>${ sku.skuId ? string("0.#") }</td>
+                    <td>${ sku.skuName }</td>
+                    <td style="text-align: right;">${ sku.availableQuantity }</td>
+                    <td style="text-align: right;">${ sku.productCenterAvailableQuantity }</td>
+                    <td style="text-align: right;">${ sku.differenceAvailableQuantity }</td>
+                    <td>${ sku.skuUnit }</td>
+                    <td>${ sku.supplierId ? string("0.#") }</td>
+                    <td>${ sku.supplierName }</td>
+                    <td>${ sku.warehouseId ? string("0.#") }</td>
+                    <td>${ sku.warehouseName }</td>
+                </tr>
+             </#list>
+          </table>
+    </div>
+</div>
+</body>
+</html>
