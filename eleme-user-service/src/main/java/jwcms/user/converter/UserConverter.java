@@ -2,7 +2,7 @@ package jwcms.user.converter;
 
 import org.springframework.stereotype.Service;
 
-import jwcms.common.converter.Converter;
+import jwcms.common.convert.Converter;
 import jwcms.user.dao.model.TUser;
 import jwcms.user.model.User;
 

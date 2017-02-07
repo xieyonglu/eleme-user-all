@@ -1,4 +1,4 @@
-package jwcms.common.operator;
+package jwcms.common.operate;
 
 /**
  * <h1>Operator 解释器抽象类</h1>

@@ -1,4 +1,4 @@
-package jwcms.common.operator;
+package jwcms.common.operate;
 
 /**
  * <h1>IOperator 解释器接口类</h1>

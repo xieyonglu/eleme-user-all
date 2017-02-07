@@ -1,4 +1,4 @@
-package jwcms.common.operator;
+package jwcms.common.operate;
 
 /**
  * <h1>Operator 执行器类</h1>

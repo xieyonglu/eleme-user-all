@@ -1,4 +1,4 @@
-package jwcms.common.operator;
+package jwcms.common.operate;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
