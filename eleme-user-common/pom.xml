@@ -19,7 +19,7 @@
 
 	<dependencies>
 		<!-- Apache POI -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>${apache.poi.version}</version>
@@ -38,7 +38,7 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-scratchpad</artifactId>
 			<version>${apache.poi.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- Freemarker -->
 		<dependency>
