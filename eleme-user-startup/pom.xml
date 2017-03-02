@@ -21,6 +21,17 @@
 			<artifactId>eleme-user-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.5.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>1.5.1.RELEASE</version>
+		</dependency> -->
 	</dependencies>
 
 	<!-- <build> <plugins> <plugin> <artifactId>maven-assembly-plugin</artifactId> 
@@ -36,8 +47,107 @@
 		<addClasspath>true</addClasspath> <classpathPrefix>lib/</classpathPrefix> 
 		</manifest> </archive> <classesDirectory> </classesDirectory> </configuration> 
 		</plugin> </plugins> </build> -->
+		
+	<build>  
+        <finalName>eleme-user-startup</finalName>  
+  
+        <resources>  
+            <resource>  
+                <targetPath>${project.build.directory}/classes</targetPath>  
+                <directory>src/main/resources</directory>  
+                <filtering>true</filtering>  
+                <includes>  
+                    <include>**/*.xml</include>  
+                    <include>**/*.properties</include>  
+                </includes>  
+            </resource>  
+            <!-- 结合com.alibaba.dubbo.container.Main -->  
+            <resource>  
+                <targetPath>${project.build.directory}/classes/META-INF</targetPath>  
+                <directory>src/main/resources</directory>  
+                <filtering>true</filtering>  
+                <includes>  
+                    <include>application-context.xml</include>  
+                </includes>  
+            </resource>  
+        </resources>  
+          
+        <pluginManagement>  
+            <plugins>  
+                <!-- 解决Maven插件在Eclipse内执行了一系列的生命周期引起冲突 -->  
+                <plugin>  
+                    <groupId>org.eclipse.m2e</groupId>  
+                    <artifactId>lifecycle-mapping</artifactId>  
+                    <version>1.0.0</version>  
+                    <configuration>  
+                        <lifecycleMappingMetadata>  
+                            <pluginExecutions>  
+                                <pluginExecution>  
+                                    <pluginExecutionFilter>  
+                                        <groupId>org.apache.maven.plugins</groupId>  
+                                        <artifactId>maven-dependency-plugin</artifactId>  
+                                        <versionRange>[2.0,)</versionRange>  
+                                        <goals>  
+                                            <goal>copy-dependencies</goal>  
+                                        </goals>  
+                                    </pluginExecutionFilter>  
+                                    <action>  
+                                        <ignore />  
+                                    </action>  
+                                </pluginExecution>  
+                            </pluginExecutions>  
+                        </lifecycleMappingMetadata>  
+                    </configuration>  
+                </plugin>  
+            </plugins>  
+        </pluginManagement>  
+        <plugins>  
+            <!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->  
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-jar-plugin</artifactId>  
+                <configuration>  
+                    <classesDirectory>target/classes/</classesDirectory>  
+                    <archive>  
+                        <manifest>  
+                            <mainClass>jwcms.startup.Bootstrap</mainClass>  
+                            <!-- 打包时 MANIFEST.MF文件不记录的时间戳版本 -->  
+                            <useUniqueVersions>false</useUniqueVersions>  
+                            <addClasspath>true</addClasspath>  
+                            <classpathPrefix>lib/</classpathPrefix>  
+                        </manifest>  
+                        <manifestEntries>  
+                            <Class-Path>.</Class-Path>  
+                        </manifestEntries>  
+                    </archive>  
+                </configuration>  
+            </plugin>  
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-dependency-plugin</artifactId>  
+                <executions>  
+                    <execution>  
+                        <id>copy-dependencies</id>  
+                        <phase>package</phase>  
+                        <goals>  
+                            <goal>copy-dependencies</goal>  
+                        </goals>  
+                        <configuration>  
+                            <type>jar</type>  
+                            <includeTypes>jar</includeTypes>  
+                            <useUniqueVersions>false</useUniqueVersions>  
+                            <outputDirectory>  
+                                ${project.build.directory}/lib  
+                            </outputDirectory>  
+                        </configuration>  
+                    </execution>  
+                </executions>  
+            </plugin>  
+        </plugins>  
+  
+    </build>
 
-	<build>
+	<!-- <build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -48,9 +158,9 @@
 							<mainClass>jwcms.startup.Bootstrap</mainClass>
 						</manifest>
 					</archive>
-					<!-- <descriptorRefs>
+					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs> -->
+					</descriptorRefs>
 					<appendAssemblyId>false</appendAssemblyId>
 					<finalName>eleme-user</finalName>
 					<descriptors>
@@ -67,7 +177,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- <plugin>
+			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<archive>
@@ -79,8 +189,8 @@
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 				</configuration>
-			</plugin> -->
+			</plugin>
 		</plugins>
-	</build>
+	</build> -->
 
 </project>
