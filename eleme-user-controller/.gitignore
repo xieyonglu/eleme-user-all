@@ -1,2 +1,6 @@
 /target/
+/.classpath
+/.gitignore
+/.project
 /.settings/
+/webapp/
