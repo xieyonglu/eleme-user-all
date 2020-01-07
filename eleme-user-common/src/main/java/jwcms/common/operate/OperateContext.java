@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * <h1>OperateContext 上下文类</h1>
  * 
- * @author 谢永路（yonglu.xie@ele.me）
+ * @author 谢永路（573546261@qq.com）
  * @date 2016/11/16
  * @since 2.1.0
  */

@@ -3,7 +3,7 @@ package jwcms.common.operate;
 /**
  * <h1>Operator 执行器类</h1>
  * 
- * @author 谢永路（yonglu.xie@ele.me）
+ * @author 谢永路（573546261@qq.com）
  * @date 2016/11/22
  * @since 2.1.0
  */
